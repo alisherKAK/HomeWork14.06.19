@@ -42,7 +42,7 @@ namespace HomeWork14_06_19
 
         private void BackgroundMusicMediaElementMediaEnded(object sender, RoutedEventArgs e)
         {
-            backgroundMusicThread.Start();
+            backgroundMusicMediaElement.Position = TimeSpan.FromMinutes(0);
         }
 
         private void MainWindowClosed(object sender, EventArgs e)
@@ -54,7 +54,7 @@ namespace HomeWork14_06_19
         {
             string text = new TextRange(richTextBox.Document.ContentStart, richTextBox.Document.ContentEnd).Text;
 
-            using (var streamWriter = new StreamWriter(File.Open("Text.txt", FileMode.Create)))
+            using (var streamWriter = new StreamWriter(File.Open("SavedText.txt", FileMode.Create)))
             {
                 streamWriter.Write(text);
             }
